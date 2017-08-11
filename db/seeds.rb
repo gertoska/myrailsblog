@@ -5,3 +5,24 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+categories = [
+    ["News"],
+    ["Programming"],
+    ["Design"]
+]
+
+categories.each do |name|
+  Category.create(name: name)
+end
+
+posts = [
+    ["First post", "This is some sample text for the first post", 1, 1],
+    ["Second post", "This is another sample text for the second post", 1, 1],
+    ["Third post", "This is another sample text for the third post", 1, 1],
+    ["Fourth post", "This is another sample text for the fourth post", 1, 1]
+]
+
+posts.each do |title, body, category_id, author_id|
+  Post.create(title: title, body: body, category_id: category_id, author_id: author_id)
+end
