@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  get 'pages/about'
+
+  get 'pages/contact'
+
+  get 'pages/resources'
+
   get 'categories/index'
 
   get 'categories/edit'
@@ -8,11 +14,17 @@ Rails.application.routes.draw do
 
   get 'categories/show'
 
-  get 'home/index'
+  root 'home#index'
 
   resources :posts
 
   resources :categories
+
+  get 'about' => 'pages#about'
+
+  get 'contact' => 'pages#contact'
+
+  get 'resources' => 'pages#resources'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
