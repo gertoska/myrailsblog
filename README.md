@@ -8,11 +8,16 @@ This is a simple blog created to learn basics of Ruby on Rails. This project has
 
 ```
 $ bundle install
-$ rake db:migrate
+$ rake db:setup
 $ rails server
 ```
 
-Now, you can navigate to `http://localhost:3000`.
+Now, you can navigate to `http://localhost:3000`. or `http://localhost:3000/admin`.
+
+| Email        | Password           |
+|:-------------:| :-------------:|
+| admin@example.com     | password |
+
 
 ## Testing
 
