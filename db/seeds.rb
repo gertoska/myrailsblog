@@ -6,11 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-categories = [
-    ["News"],
-    ["Programming"],
-    ["Design"]
-]
+categories = ["News", "Programming", "Design"]
 
 categories.each do |name|
   Category.create(name: name)
@@ -26,3 +22,5 @@ posts = [
 posts.each do |title, body, category_id, author_id|
   Post.create(title: title, body: body, category_id: category_id, author_id: author_id)
 end
+
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
