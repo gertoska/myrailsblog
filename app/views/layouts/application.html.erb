@@ -2,25 +2,89 @@
 <html>
 <head>
   <title>My Rails Blog</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <link href="http://fonts.googleapis.com/css?family=Abel" rel="stylesheet" type="text/css" />
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-<div>
-  <ul class="main-nav">
-    <li><%= link_to 'Home', root_path %></li>
-    <li><%= link_to 'About', about_path %></li>
-    <li><%= link_to 'Blog', posts_path %></li>
-    <li><%= link_to 'Contact', contact_path %></li>
-    <li><%= link_to 'Resources', resources_path %></li>
-  </ul>
+<div id="wrapper">
+  <div id="header-wrapper">
+    <div id="header">
+      <div id="logo">
+        <h1><%= link_to 'My Rails Blog', root_path %></h1>
+        <p>Learning Ruby on Rails</p>
+      </div>
+      <div id="menu">
+        <ul class="main-nav">
+          <li><%= link_to 'Home', root_path %></li>
+          <li><%= link_to 'About', about_path %></li>
+          <li><%= link_to 'Blog', posts_path %></li>
+          <li><%= link_to 'Contact', contact_path %></li>
+          <li><%= link_to 'Resources', resources_path %></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div id="page">
+    <div id="page-bgtop">
+      <div id="page-bgbtm">
+        <div id="content">
+
+          <% flash.each do |key, value| %>
+              <p><%= value %></p>
+          <% end %>
+
+          <%= yield %>
+
+          <div style="clear: both;">&nbsp;</div>
+        </div>
+        <div id="sidebar">
+          <ul>
+            <li>
+              <div id="search">
+                <form method="get" action="#">
+                  <div>
+                    <input type="text" name="s" id="search-text" value=""/>
+                    <input type="submit" id="search-submit" value="GO"/>
+                  </div>
+                </form>
+              </div>
+              <div style="clear: both;">&nbsp;</div>
+            </li>
+            <li>
+              <h2>Get The Framework</h2>
+              <p>You can download Ruby and/or Ruby on Rails for free right now
+                <br/>
+                <a style="color:#D93544;" href="http://rubyonrails.org/" target="blank">GET IT NOW</a>
+              </p>
+            </li>
+            <li>
+              <h2>Categories</h2>
+              <ul>
+                <% all_categories.each do |category| %>
+                  <li><%= link_to category.name, category_path(:id => category.id) %></li>
+                <% end %>
+              </ul>
+            </li>
+            <li>
+              <h2>Blogroll</h2>
+              <ul>
+                <% all_posts.each do |post| %>
+                    <li><%= link_to post.title, post_path(:id => post.id) %></li>
+                <% end %>
+              </ul>
+            </li>
+
+          </ul>
+        </div>
+        <div style="clear: both;">&nbsp;</div>
+      </div>
+    </div>
+  </div>
+  <div id="footer">
+    <p>2017 My Rails Blog - Simple blog project</p>
+  </div>
 </div>
-<% flash.each do |key, value| %>
-  <p><%= value %></p>
-<% end %>
-
-<%= yield %>
-
 </body>
 </html>

@@ -1,6 +1,24 @@
-<p>
-  <strong>Name:</strong>
-  <%= @category.name %>
-</p>
+<div class="post">
+  <h1>Category: <b><%= @category.name %></b></h1>
+</div>
 
-<%= link_to 'Back', categories_path %>
+<% if @posts.each do |post| %>
+    <div class="post">
+      <h2 class="title"><%= link_to post.title, post %></h2>
+      <div class="entry">
+        <p><%= post.body %></p>
+      </div>
+      <div class="byline">
+        <p class="meta"><%= post.created_at.strftime("%b %d, %Y") %></p>
+        <p class="links"><%= link_to 'Read More', post %></p>
+      </div>
+    </div>
+<% end.empty? %>
+    <div class="post">
+      <p>Sorry, there are no posts in this category</p>
+    </div>
+<% end %>
+
+<div class="post">
+  <%= link_to 'Back to Categories', categories_path %>
+</div>

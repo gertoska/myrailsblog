@@ -1,7 +1,12 @@
-<h1>Welcome to My Rails Blog</h1>
-<p>This is some info about our Ruby on Rails blog website</p>
 <% @posts.each do |post| %>
-    <h3><%= link_to post.title, post %></h3>
-    <p><%= post.body %></p>
-    <hr />
+    <div class="post">
+      <h2 class="title"><%= link_to post.title, post %></h2>
+      <div class="entry">
+        <p><%= post.body %></p>
+      </div>
+      <div class="byline">
+        <p class="meta"><%= post.created_at.strftime("%b %d, %Y") %></p>
+        <p class="links"><%= link_to 'Read More', post %></p>
+      </div>
+    </div>
 <% end %>
