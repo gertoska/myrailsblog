@@ -1,4 +1,5 @@
 <h1><%= @post.title %></h1>
 <p><%= @post.created_at.strftime("%b %d. %Y") %></p>
 <p><%= @post.body %></p>
-<%= link_to 'Edit post', edit_post_path %> | <%= link_to 'Delete post', @post, :confirm => 'Are you sure you want to delete?', :method => :delete %>
+<p>Category: <%= link_to @post.category.name, category_path %></p>
+<%= link_to 'Back', posts_path %>
