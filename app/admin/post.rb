@@ -12,5 +12,13 @@ ActiveAdmin.register Post do
 #   permitted
 # end
   menu :label => 'Blog post'
-  permit_params :title, :body, :category_id, :author_id
+  permit_params :title, :body, :category_id, :admin_user_id
+
+  index do
+    column :title
+    column "Author", :admin_user
+    column :category
+    column :created_at
+    actions
+  end
 end
