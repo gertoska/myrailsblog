@@ -1,7 +1,5 @@
 # My Rails Blog
 
-> Work in progress!
-
 ![Screenshot](app/assets/images/screenshot.jpg)
 
 This is a simple blog created to learn basics of Ruby on Rails. This project has been built following a guide from Udemy called [Learn Ruby on Rails from Scratch](https://www.udemy.com/learn-ruby-on-rails-from-scratch/).
